@@ -6,6 +6,10 @@
     <div class="list-group">
         <a href="{{route('inventory.index')}}" class="list-group-item list-group-item-action">Inventory List</a>
         <a href="{{route('inventory.create')}}" class="list-group-item list-group-item-action">Inventory Create</a>
-
+    </div>
+    <h4 class="py-2">Category</h4>
+    <div class="list-group">
+        <a href="{{route('category.index')}}" class="list-group-item list-group-item-action">Category List</a>
+        <a href="{{route('category.create')}}" class="list-group-item list-group-item-action">Category Create</a>
     </div>
 </aside>

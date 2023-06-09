@@ -14,10 +14,10 @@
         <div class="col-12">
             @include("layouts.header")
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             @include("layouts.navbar")
         </div>
-        <div class="col-9">
+        <div class="col-12 col-md-9">
             @yield("content")
         </div>
     </div>

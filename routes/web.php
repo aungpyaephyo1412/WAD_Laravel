@@ -19,4 +19,9 @@ Route::get('/',[pageController::class,'home'])->name('page.home');
 Route::get('inventory',[itemController::class,'index'])->name('inventory.index');
 Route::get('inventory/create',[itemController::class,'create'])->name('inventory.create');
 Route::post('inventory',[itemController::class,'store'])->name('inventory.store');
+Route::get('inventory/{id}',[itemController::class,'show'])->name('inventory.show');
+Route::delete('inventory/{id}',[itemController::class,'destroy'])->name('inventory.destroy');
+Route::get('inventory/{id}/edit',[itemController::class,'edit'])->name('inventory.edit');
+Route::put('inventory/{id}',[itemController::class,'update'])->name('inventory.update');
+Route::resource('category',\App\Http\Controllers\categoryController::class);
 
