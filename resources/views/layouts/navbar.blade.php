@@ -4,8 +4,8 @@
     </div>
     <h4 class="py-2">Inventory</h4>
     <div class="list-group">
-        <a href="{{route('inventory.index')}}" class="list-group-item list-group-item-action">Inventory List</a>
-        <a href="{{route('inventory.create')}}" class="list-group-item list-group-item-action">Inventory Create</a>
+        <a href="{{route('stock.index')}}" class="list-group-item list-group-item-action">Inventory List</a>
+        <a href="{{route('stock.create')}}" class="list-group-item list-group-item-action">Inventory Create</a>
     </div>
     <h4 class="py-2">Category</h4>
     <div class="list-group">

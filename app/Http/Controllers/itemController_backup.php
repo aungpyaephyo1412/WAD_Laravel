@@ -6,7 +6,7 @@ use App\Models\Item;
 use Illuminate\Http\Request;
 use JetBrains\PhpStorm\NoReturn;
 
-class itemController extends Controller
+class itemControllerBackup extends Controller
 {
     public function create(){
         return view('inventory.create');
@@ -25,16 +25,16 @@ class itemController extends Controller
         $item->price = $request->item_price;
         $item->stock = $request->item_stock;
         $item->save();
-        return redirect()->route('inventory.index');
+        return redirect()->route('stock.index');
     }
     public function show($id){
 //        $item = Item::find($id);
 //        dd($item);
 //        $item = Item::findOrFail($id);
-//        return view('inventory.show',[
+//        return view('stock.show',[
 //            "item" => Item::find($id)
 //        ]);
-//        return view('inventory.show',compact("item"));
+//        return view('stock.show',compact("item"));
         return view('inventory.show',["item" => Item::findOrFail($id)]);
     }
 
@@ -47,7 +47,7 @@ class itemController extends Controller
         $item->price = $request->item_price;
         $item->stock = $request->item_stock;
         $item->update();
-        return redirect()->route('inventory.index');
+        return redirect()->route('stock.index');
     }
     public function destroy($id){
         $item= Item::findOrFail($id);

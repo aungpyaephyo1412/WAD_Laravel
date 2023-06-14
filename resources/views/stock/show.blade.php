@@ -6,19 +6,19 @@
 <table class="table table-info">
     <tr>
         <td>Name</td>
-        <td>{{ $item->name }}</td>
+        <td>{{ $stock->title }}</td>
     </tr>
     <tr>
         <td>Price</td>
-        <td>{{ $item->price }}</td>
+        <td>{{ $stock->price }}</td>
     </tr>
-    <tr>
-        <td>Stock</td>
-        <td>{{ $item->stock }}</td>
-    </tr>
+{{--    <tr>--}}
+{{--        <td>Stock</td>--}}
+{{--        <td>{{ $stock->stock }}</td>--}}
+{{--    </tr>--}}
     <tr>
         <td>Created_at</td>
-        <td>{{ $item->created_at }}</td>
+        <td>{{ $stock->created_at }}</td>
     </tr>
 </table>
 @endsection
