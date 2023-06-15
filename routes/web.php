@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\categoryController;
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\pageController;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +30,23 @@ Route::get('/', [pageController::class, 'home'])->name('page.home');
 //    Route::put('/{id}', 'update')->name('stock.update');
 //});
 
-Route::resource('stock', ItemController::class);
-Route::resource('category', categoryController::class);
-Route::resource('stock',\App\Http\Controllers\StockController::class);
+Route::middleware(\App\Http\Middleware\IsAuthenticated::class)->group(function (){
+    Route::resource('stock', ItemController::class);
+    Route::resource('category', categoryController::class);
+    Route::resource('stock',\App\Http\Controllers\StockController::class);
+    Route::prefix('dashboard')->controller(HomeController::class)->group(function (){
+        Route::get('home','home')->name('dashboard.home');
+    });
+});
+
+//Authentication
+Route::controller(AuthController::class)->group(function (){
+    Route::middleware(\App\Http\Middleware\IsNotAuthenticated::class)->group(function (){
+        Route::get('register','register')->name('auth.register');
+        Route::post('register','store')->name('auth.store');
+        Route::get('login','login')->name('auth.login');
+        Route::post('login','check')->name('auth.check');
+    });
+    Route::post('logout','logout')->name('auth.logout');
+});
 

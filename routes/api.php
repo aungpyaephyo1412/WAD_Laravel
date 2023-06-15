@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::apiResource('stock',\App\Http\Controllers\StockApiController::class)->middleware(CheckApiToken::class);
+Route::apiResource('stock',\App\Http\Controllers\StockApiController::class)->middleware('cat');
