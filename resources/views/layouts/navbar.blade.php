@@ -18,9 +18,13 @@
             <a href="{{route('category.index')}}" class="list-group-item list-group-item-action">Category List</a>
             <a href="{{route('category.create')}}" class="list-group-item list-group-item-action">Category Create</a>
         </div>
-        <form action="{{route('auth.logout')}}" method="post" class="list-group py-2">
-            @csrf
-            <button class="list-group-item list-group-item-action">Log out</button>
-        </form>
+
+        <div class="list-group my-2">
+            <a href="{{route('dashboard.home')}}" class="list-group-item list-group-item-action">Profile</a>
+            <form action="{{route('auth.logout')}}" method="post" class="">
+                @csrf
+                <button class="list-group-item list-group-item-action">Log out</button>
+            </form>
+        </div>
     @enduser
 </aside>

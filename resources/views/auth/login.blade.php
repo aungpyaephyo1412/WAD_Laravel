@@ -30,7 +30,11 @@
             </div>
             @enderror
         </div>
+        <div class="">
+            new user in here <a href="{{route('auth.register')}}">register now</a>
+        </div>
         <button class="btn btn-outline-primary">Login</button>
+        <a href="{{route('auth.forgot')}}">Forget password?</a>
     </form>
 
 @endsection

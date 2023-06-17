@@ -49,6 +49,9 @@
             </div>
             @enderror
         </div>
+        <div class="">
+            you have alredy account in here <a href="{{route('auth.login')}}">login now</a>
+        </div>
         <button class="btn btn-outline-primary">Register</button>
     </form>
 @endsection

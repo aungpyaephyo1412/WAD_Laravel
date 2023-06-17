@@ -18,6 +18,11 @@
             @include("layouts.navbar")
         </div>
         <div class="col-12 col-md-9">
+            @user
+              @if(is_null(session('auth')->email_verified_at))
+                Verify your account <a href="{{route('mail.verify')}}" class="alert-link">link</a>
+              @endif
+            @enduser
             @yield("content")
         </div>
     </div>
