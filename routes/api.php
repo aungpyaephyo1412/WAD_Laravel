@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\StockApiController;
+use App\Http\Middleware\AcceptHeader;
+use App\Http\Middleware\ApiAuthenticated;
 use App\Http\Middleware\CheckApiToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +23,13 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::apiResource('stock',\App\Http\Controllers\StockApiController::class)->middleware('cat');
+Route::prefix('v1')->middleware(AcceptHeader::class)->group(function (){
+    Route::apiResource('stock', StockApiController::class)->middleware(ApiAuthenticated::class);
+
+    Route::controller(AuthController::class)->group(function () {
+        Route::post('register', 'register')->name('api.auth.register');
+        Route::post('login', 'login')->name('api.auth.login');
+        Route::post('logout','logout')->name('api.auth.logout')->middleware(ApiAuthenticated::class);
+    });
+
+});
